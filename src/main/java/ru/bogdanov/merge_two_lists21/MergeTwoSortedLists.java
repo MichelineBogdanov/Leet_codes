@@ -21,6 +21,12 @@ public class MergeTwoSortedLists {
     }
 
     public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
+        if (list1 == null || list2 == null) {
+            if (list1 == null) {
+                return list2;
+            }
+            return list1;
+        }
         ArrayList<Integer> resList = getIntegers(list1, list2);
         List<Integer> list = resList.stream().sorted().toList();
         ListNode resultTail = new ListNode();
