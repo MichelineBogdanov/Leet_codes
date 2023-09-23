@@ -16,7 +16,7 @@ public class MergeTwoSortedLists {
         ListNode list1 = new ListNode(1, new ListNode(2, new ListNode(4)));
         ListNode list2 = new ListNode(1, new ListNode(3, new ListNode(4)));
         MergeTwoSortedLists mtsl = new MergeTwoSortedLists();
-        ListNode listNode = mtsl.mergeTwoLists(list1, list2);
+        ListNode listNode = mtsl.mergeTwoLists2(list1, list2);
         System.out.println(listNode);
     }
 
@@ -58,6 +58,39 @@ public class MergeTwoSortedLists {
         resList.addAll(intList1);
         resList.addAll(intList2);
         return resList;
+    }
+
+    public ListNode mergeTwoLists2(ListNode list1, ListNode list2) {
+        if (list1 == null || list2 == null) {
+            if (list1 == null) {
+                return list2;
+            }
+            return list1;
+        }
+        if (list1.next == null && list2.next == null) {
+            return new ListNode(Math.min(list1.val, list2.val), new ListNode(Math.max(list1.val, list2.val)));
+        }
+        ListNode currentNode = list1.val >= list2.val ? list2 : list1;
+        ListNode anotherListCurrentNode = list1.val < list2.val ? list2 : list1;
+        ListNode result = new ListNode();
+        result.next = list1.val >= list2.val ? list2 : list1;
+        if (currentNode.next == null && anotherListCurrentNode.next != null) {
+            currentNode.next = anotherListCurrentNode;
+            return currentNode;
+        }
+        while (currentNode.next != null) {
+            if (currentNode.next.val >= anotherListCurrentNode.val) {
+                ListNode term = currentNode.next;
+                currentNode.next = anotherListCurrentNode;
+                anotherListCurrentNode = term;
+            }
+            currentNode = currentNode.next;
+            if (currentNode.next == null) {
+                currentNode.next = anotherListCurrentNode;
+                break;
+            }
+        }
+        return result.next;
     }
 
 }
