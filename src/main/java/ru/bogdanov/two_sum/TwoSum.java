@@ -29,16 +29,12 @@ public class TwoSum {
     }
 
     public int[] twoSum(int[] nums, int target) {
-        int[] array = Arrays.stream(nums).sorted().toArray();
         int length = nums.length;
         for (int i = 0; i < length - 1; i++) {
             int key = target - nums[i];
-            int search = Arrays.binarySearch(array, key);
-            if (search >= 0) {
-                int position = findPosition(nums, i + 1, length, key);
-                if (position > 0 && position > i) {
-                    return new int[]{i, position};
-                }
+            int position = findPosition(nums, i + 1, length, key);
+            if (position > i) {
+                return new int[]{i, position};
             }
         }
         return new int[]{-1, -1};
