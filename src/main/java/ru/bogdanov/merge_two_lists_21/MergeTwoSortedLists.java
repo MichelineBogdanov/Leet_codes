@@ -1,7 +1,8 @@
-package ru.bogdanov.merge_two_lists21;
+package ru.bogdanov.merge_two_lists_21;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * You are given the heads of two sorted linked lists list1 and list2.
@@ -28,7 +29,7 @@ public class MergeTwoSortedLists {
             return list1;
         }
         ArrayList<Integer> resList = getIntegers(list1, list2);
-        List<Integer> list = resList.stream().sorted().toList();
+        List<Integer> list = resList.stream().sorted().collect(Collectors.toList());
         ListNode resultTail = new ListNode();
         ListNode resultHead = new ListNode(list.get(0), resultTail);
         for (int i = 1; i < list.size(); i++) {

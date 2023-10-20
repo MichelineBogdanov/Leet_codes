@@ -1,4 +1,4 @@
-package ru.bogdanov.merge_two_lists21;
+package ru.bogdanov.merge_two_lists_21;
 
 public class ListNode {
     int val;

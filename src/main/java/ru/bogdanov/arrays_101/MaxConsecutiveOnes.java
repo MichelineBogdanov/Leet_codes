@@ -1,4 +1,4 @@
-package ru.bogdanov.arrays101;
+package ru.bogdanov.arrays_101;
 
 /**
  * Given a binary array nums, return the maximum number of consecutive 1's in the array.
@@ -10,7 +10,7 @@ package ru.bogdanov.arrays101;
 
 public class MaxConsecutiveOnes {
     public static void main(String[] args) {
-        var maxConsecutiveOnes = new MaxConsecutiveOnes();
+        MaxConsecutiveOnes maxConsecutiveOnes = new MaxConsecutiveOnes();
         int[] ints = {1, 1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
         int max = maxConsecutiveOnes.findMaxConsecutiveOnes(ints);
         System.out.println(max);

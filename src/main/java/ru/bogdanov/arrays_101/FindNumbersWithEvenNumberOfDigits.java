@@ -1,4 +1,4 @@
-package ru.bogdanov.arrays101;
+package ru.bogdanov.arrays_101;
 
 /**
  * Given an array nums of integers, return how many of them contain an even number of digits.

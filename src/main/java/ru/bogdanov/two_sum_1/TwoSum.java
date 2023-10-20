@@ -1,4 +1,4 @@
-package ru.bogdanov.two_sum;
+package ru.bogdanov.two_sum_1;
 
 import java.util.Arrays;
 

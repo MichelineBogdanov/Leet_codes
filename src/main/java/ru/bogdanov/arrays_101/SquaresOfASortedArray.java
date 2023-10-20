@@ -1,4 +1,4 @@
-package ru.bogdanov.arrays101;
+package ru.bogdanov.arrays_101;
 
 /**
  * Given an integer array nums sorted in non-decreasing order, return an array
