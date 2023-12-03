@@ -48,14 +48,14 @@ public class PalindromeNumber {
             return true;
         }
         for (int i = 0; i < numbersCount; i++) {
-            x -= ((temp % 10) * Math.pow(10, numbersCount - i - 1));
+            x -= (int) ((temp % 10) * Math.pow(10, numbersCount - i - 1));
             temp = temp / 10;
         }
         return x == 0;
     }
 
     public boolean isPalindrome2(int x) {
-        return String.valueOf(x).equals(new StringBuilder(String.valueOf(x)).reverse().toString());
+        return String.valueOf(x).contentEquals(new StringBuilder(String.valueOf(x)).reverse());
     }
 
     public boolean isPalindrome3(int x) {
@@ -72,7 +72,7 @@ public class PalindromeNumber {
             x /= 10;
         }
         for (int i = 0; i < numbersCount / 2; i++) {
-            if (ints.get(i) != (ints.get(((int) numbersCount) - 1 - i))) {
+            if (!ints.get(i).equals(ints.get(((int) numbersCount) - 1 - i))) {
                 return false;
             }
         }
