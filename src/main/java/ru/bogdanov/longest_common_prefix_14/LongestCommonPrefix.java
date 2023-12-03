@@ -21,12 +21,12 @@ public class LongestCommonPrefix {
 
     public static void main(String[] args) {
         LongestCommonPrefix longestCommonPrefix = new LongestCommonPrefix();
-        String[] strings = {"flower","flow","flight"};
-        String s = longestCommonPrefix.longestCommonPrefix(strings);
+        String[] strings = {"dog", "racecar", "car"};
+        String s = longestCommonPrefix.longestCommonPrefix2(strings);
         System.out.println(s);
     }
 
-    public String longestCommonPrefix(String[] strs) {
+    public String longestCommonPrefix1(String[] strs) {
         String result = "";
         if (strs.length == 0) {
             return result;
@@ -49,6 +49,21 @@ public class LongestCommonPrefix {
             }
         }
         return result;
+    }
+
+    public String longestCommonPrefix2(String[] strs) {
+        StringBuilder result = new StringBuilder();
+        Arrays.sort(strs);
+        String first = strs[0];
+        String last = strs[strs.length - 1];
+        for (int i = 0; i < Math.min(first.length(), last.length()); i++) {
+            if (first.charAt(i) == last.charAt(i)) {
+                result.append(first.charAt(i));
+            } else {
+                break;
+            }
+        }
+        return result.toString();
     }
 
 }
