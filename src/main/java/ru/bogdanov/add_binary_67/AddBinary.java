@@ -21,10 +21,12 @@ public class AddBinary {
 
     public static String addBinary(String a, String b) {
         StringBuilder result = new StringBuilder();
+        int i = a.length() - 1;
+        int j = b.length() - 1;
         int carry = 0;
-        for (int k = 0; k <= Math.max(a.length() - 1, b.length() - 1) || carry == 1; k++) {
-            carry += Character.digit((a.length() - 1 - k) >= 0 ? a.charAt(a.length() - 1 - k) : '0', 2);
-            carry += Character.digit((b.length() - 1 - k) >= 0 ? b.charAt(b.length() - 1 - k) : '0', 2);
+        for (int k = 0; k <= Math.max(i, j) || carry == 1; k++) {
+            carry += Character.digit((i - k) >= 0 ? a.charAt(i - k) : '0', 2);
+            carry += Character.digit((j - k) >= 0 ? b.charAt(j - k) : '0', 2);
             result.append(carry % 2);
             carry /= 2;
         }
