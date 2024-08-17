@@ -24,6 +24,17 @@ public class BinaryTreeInorderTraversal {
     public static void main(String[] args) {
         List<Integer> integers = inorderTraversal(new TreeNode(1, null, null));
         System.out.println(integers);
+        
+        TreeNode treeNode = new TreeNode(9,
+                new TreeNode(6),
+                new TreeNode(-3,
+                        new TreeNode(-6),
+                        new TreeNode(2,
+                                new TreeNode(2
+                                        , new TreeNode(-6, new TreeNode(-6), null)
+                                        , new TreeNode(-6))
+                                , null)));
+        System.out.println(countNodes(treeNode));
     }
 
     public static List<Integer> inorderTraversal(TreeNode root) {
@@ -40,6 +51,10 @@ public class BinaryTreeInorderTraversal {
             }
         }
         return res;
+    }
+
+    public static int countNodes(TreeNode root) {
+        return root == null ? 0 : 1 + countNodes(root.left) + countNodes(root.right);
     }
 }
 
