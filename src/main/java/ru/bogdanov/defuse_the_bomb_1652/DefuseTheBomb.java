@@ -67,9 +67,9 @@ public class DefuseTheBomb {
                 for (int j = 1; j <= Math.abs(k); j++) {
                     int index;
                     if (k > 0) {
-                        index = i + j >= code.length ? Math.abs(code.length - i - j) : i + j;
+                        index = (i + j) % code.length;
                     } else {
-                        index = i - j >= 0 ? i - j : code.length + i - j;
+                        index = (i - j + code.length) % code.length;
                     }
                     val += code[Math.abs(index)];
                 }
