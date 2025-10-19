@@ -1,6 +1,5 @@
 package ru.bogdanov.number_of_students_unable_to_eat_lunch_1700;
 
-import java.util.Deque;
 import java.util.LinkedList;
 import java.util.Objects;
 
